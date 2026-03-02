@@ -1,6 +1,5 @@
-
 // ============================================
-// ARCHIVO: config.ts
+// ARCHIVO: config.ts (CORRECTO)
 // ============================================
 import { initializeApp, getApps } from "firebase/app"
 import { getAuth } from "firebase/auth"
@@ -8,13 +7,13 @@ import { getFirestore } from "firebase/firestore"
 import { getStorage } from "firebase/storage"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDMf_2jURSJEyUu-pAbAPrKzF9KyX_WzFo",
-  authDomain: "veterinaria-1f5f1.firebaseapp.com",
-  projectId: "veterinaria-1f5f1",
-  storageBucket: "veterinaria-1f5f1.firebasestorage.app",
-  messagingSenderId: "984208748318",
-  appId: "1:984208748318:web:3dc7a9dc9bbb46c7cd630f",
-  measurementId: "G-WEL2XK104X",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 }
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
