@@ -33,7 +33,7 @@ const createOrUpdateUser = async (user: User) => {
         email: user.email,
         displayName: user.displayName,
         photoURL: user.photoURL,
-        isAdmin: false,
+        isAdmin: true, // Por defecto, todos los usuarios son admin (ajustar según necesidades)
         createdAt: serverTimestamp(),
         lastLogin: serverTimestamp(),
       })
