@@ -17,7 +17,7 @@ export const enviarEmailConfirmacion = async (
   datos: DatosTurno,
 ): Promise<boolean> => {
   try {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
 
     const templateParams = {
       nombre_y_apellido: datos.nombre_y_apellido,
@@ -31,15 +31,15 @@ export const enviarEmailConfirmacion = async (
     };
 
     const response = await emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
       templateParams,
     );
 
     console.log("Email enviado:", response.status, response.text);
     return true;
   } catch (error) {
-    console.error("Error EmailJS:", error);
+    console.error("Error al enviar email:", error);
     return false;
   }
 };
